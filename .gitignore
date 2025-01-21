@@ -1,3 +1,7 @@
 node_modules
 yarn-error.log
 dist
+reports
+k6.log
+summary_*
+html-report.html
