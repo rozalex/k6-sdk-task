@@ -17,6 +17,7 @@ export default async () => {
 const test = async () => {
   await loginWebSdk(); // login to priority
 
-  const form = await sdk.formStart("CUSTOMERS");
-  console.log(form);
+  // to get you started, here is how you open the form
+  const form = await sdk.formStart("CINVOICES");
+
 }

@@ -37,6 +37,8 @@
   }
 
   function atob(str) {
+    // const decoded = base64.decode(str);
+    // console.log(decoded);
       return base64.decode(str);
   }
 
@@ -3143,6 +3145,7 @@ try {
    else {
     res = $ResponseResult(response, this$static.op_0);
     var respp = decodeURIComponent(escape(atob(res)));
+
     try {
       var obj;
       if (JSON.parse(respp).Form) {
@@ -3205,6 +3208,7 @@ callback.op_0 = 'FormActivateMob';
 !!this$static.conHolder && this$static.conHolder.SetIsGoneToServer(callback);
 $setHeader(this$static, 'SOAPAction', 'http://tempuri.org/IWCFService/FormActivateMob');
 data_0 = $OneParameter_0('statexml', statexml) + $OneParameter('before', ($clinit_Boolean() , before?TRUE_0:FALSE_0)) + '<\/FormActivateMob><\/s:Body><\/s:Envelope>';
+
 AppKeyFunction?$CallApiKeyFunc(this$static, data_0, callback, AppKeyFunction):$PriSendRequest(this$static, data_0, callback, AppKey);
 }
 
@@ -3935,6 +3939,7 @@ fieldColors = new HashMap;
 
 function $Activate(this$static, start_0, onSuccess, onError, ename, type_0, onProgress){
 var memento;
+
 if ($InvokeErrorIfRowChanged(this$static, onSuccess, onError))
   return;
 if (ename == ($clinit_PriCommon() , LabelsPrint)) {
@@ -9514,6 +9519,7 @@ $ProcStartMobAsync($GetConnection_1(this$static), type_0, ename, !!ExtMessages &
 }
 
 function $ProcStep(this$static, jo, operation, newStep, onSuccess, onError){
+  console.log(jo);
 var curmsg, exmail, messages, msg, msgs, n, pa, proc, s, step, stepobj, ret, urls, ret_0, data_0, jurls, jurl, url_0;
 pa = dynamicCast($get_0(dynamicCast(jo, 5), 'Procedure'), 7);
 proc = dynamicCast($get(pa, 0), 5);
@@ -9561,6 +9567,7 @@ if (!!messages && messages.jsArray.length > this$static.MsgCounter) {
   return;
 }
 exmail = $get_0(proc, 'ExternalMail');
+console.log("-------------------------------ExternalMail----------------------------------------");
 if (exmail) {
   InvokeNotSupported(this$static, 'ExternalMail', onError);
   $CancelProcedure(this$static, false, false, null, null);
